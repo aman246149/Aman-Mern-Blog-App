@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Viga&display=swap');
+
+.card{
+    height: 20vh;
+    margin-top: 3.5rem;
+    display: flex;
+    justify-content: space-between;
+    /* align-items: flex-end; */
+    font-family: 'Viga', sans-serif;
+}
+
+.leftpart{
+    width: 65%;
+}
+
+.rightpart{
+color: white;
+font-size: xx-large;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+
+/* responsive */
+
+@media screen and (max-width: 600px) {
+    .card{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: auto;
+    }
+
+    .leftpart{
+        width: 100%;
+    }
+    
+  
+
+}

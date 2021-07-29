@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather+Sans:wght@500&display=swap');
+nav{
+    position: fixed;
+    top: 0rem;
+    height: 10vh;
+    left: 9rem;
+    right: 9rem ;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'Merriweather Sans', sans-serif;
+    text-transform: uppercase;
+    background-color: white;
+}
+
+ul{
+    display: flex;
+    justify-content: space-around;
+    width: 50%;
+    margin-left: 10rem;
+    
+
+}
+
+li{
+    list-style: none;
+    font-size: large;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+button{
+    padding: 14px;
+    color: white;
+    font-weight: 900;
+    background-color: red;
+    border: 2px solid #e22a1d;
+    cursor: pointer;
+}
+
+.logo{
+    font-weight: 800;
+    font-size: xx-large;
+    cursor: pointer;
+}
+
+.link{
+    text-decoration: none;
+    color: inherit;
+
+}
+
+
+.link:focus, .link:hover, .link:visited, .link:link, .link:active {
+    text-decoration: none;
+}

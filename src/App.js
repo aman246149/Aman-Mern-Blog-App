@@ -1,23 +1,46 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import HomePage from "./pages/HomePage/HomePage";
+import { Route,Switch } from 'react-router-dom'
+import Web from "./pages/Web";
+import Tech from "./pages/Tech";
+import Motivation from "./pages/Motivation";
+import Tricks from "./pages/Tricks";
+import About from "./pages/About";
+import Contactus from "./pages/Contactus";
+import Navbar from "./Components/Navbar/Navbar";
+import Jobs from "./pages/Jobs";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+       <Navbar />
+     <switch>
+       <Route path="/" exact>
+           <HomePage/>
+       </Route>
+
+       <Route path="/web" >
+           <Web/>
+       </Route>
+       <Route path="/tech" >
+           <Tech/>
+       </Route>
+       <Route path="/motivation" >
+           <Motivation/>
+       </Route>
+       <Route path="/tricks" >
+           <Tricks/>
+       </Route>
+       <Route path="/jobs" >
+           <Jobs/>
+       </Route>
+       <Route path="/about" >
+           <About/>
+       </Route>
+       <Route path="/contactus" >
+           <Contactus/>
+       </Route>
+     </switch>
     </div>
   );
 }
