@@ -54,3 +54,66 @@ button{
 .link:focus, .link:hover, .link:visited, .link:link, .link:active {
     text-decoration: none;
 }
+
+
+/* responsiveness mobile */
+
+
+@media screen and (max-width: 410px) {
+    nav{
+        position: fixed;
+        top: 0rem;
+        height: 10vh;
+        left: 1.5rem;
+        right: 0rem ;
+        /* width:100% */
+
+    }
+
+    ul{
+        display:none;
+    }
+
+    
+}
+
+
+@media screen and (max-width: 1024px) {
+    ul{
+        display:none;
+    }
+}
+
+@media screen and (max-width: 530px) {
+    nav{
+        position: fixed;
+        top: 0rem;
+        height: 10vh;
+        left: 1.5rem;
+        right: 0rem ;
+        /* width:100% */
+
+    }
+}
+
+
+
+/* for large devices */
+
+@media screen and (min-width: 1600px) {
+   
+    li{
+        font-size:xx-large;
+    }
+
+    .logo{
+        font-size:3rem;
+
+    }
+
+    button{
+        font-size:xx-large
+    }
+    
+    
+    }

@@ -4,3 +4,23 @@
 }
 
 /* container */
+
+@media screen and (max-width: 410px) {
+    .App{
+    
+      margin:1.5rem 1.5rem 1rem 1.5rem;
+      padding-right: 15px;
+      width: 100%;
+  }
+}
+
+
+@media screen and (max-width: 530px) {
+  .App{
+    
+    margin:1.5rem 1.5rem 1rem 1.5rem;
+    padding-right: 15px;
+    width: 100%;
+}
+
+}

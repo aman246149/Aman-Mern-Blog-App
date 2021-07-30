@@ -34,8 +34,49 @@ align-items: center;
 
     .leftpart{
         width: 100%;
+        
     }
-    
-  
 
+    .rightpart{
+        font-size: xx-large;
+    }
 }
+
+@media screen and (max-width: 1025px) {
+    .card{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: auto;
+    }
+
+    .leftpart{
+        width: 100%;
+        
+    }
+
+    .rightpart{
+        font-size:3rem;
+    }
+}
+
+
+
+/* 4k screen */
+
+
+
+
+@media screen and (min-width: 1600px) {
+   
+
+    .leftpart{
+        width: 80%;
+        font-size:2rem;
+    }
+
+    .rightpart{
+        font-size:3rem;
+    }
+}
+
