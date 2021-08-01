@@ -10,12 +10,12 @@ function Navbar() {
             <ul>
                 <li><Link to="/web" className="link">Web</Link></li>
                 <li><Link to="/tech" className="link">Tech</Link></li>
-                <li><Link to="/motivation" className="link">Motivation</Link></li>
-                <li><Link to="/tricks" className="link">Tricks</Link></li>
-                <li><Link to="/jobs" className="link">Jobs</Link></li>
+                <li><Link to="/dsa" className="link">DSA</Link></li>
+                <li><Link to="/tricks" className="link">CHEAT SHEET</Link></li>
                 <li><Link to="/about" className="link">About</Link></li>
+                <li><Link to="/formeditor" className="link">AddBLOG</Link></li>
             </ul>
-            <button><Link to="/contactus" className="link">CONTACT US</Link></button>
+            <button><Link to="/signup" className="link">SIGNUP</Link></button>
         </nav>
     )
 }

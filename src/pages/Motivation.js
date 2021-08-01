@@ -1,12 +1,12 @@
 import React from "react";
 import "./AllPage.css";
 
-function Motivation() {
+function Dsa() {
   return (
     <div className="section">
-      <h1>Motivation</h1>
+      <h1>Dsa</h1>
     </div>
   );
 }
 
-export default Motivation;
+export default Dsa;

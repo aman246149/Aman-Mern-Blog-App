@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Viga&display=swap');
+
+
+.section{
+    padding-top: 5rem;
+    width: 50vw;
+    margin-top: 8vh;
+    letter-spacing: -0.5px;
+}
+
+.section h1{
+    font-family: 'Viga', sans-serif;
+    font-size: 3rem;
+    line-height: 1;
+
+}
+
+.midIconContainer{
+    display: flex;
+    justify-content: space-between;
+    padding-right: 10px;
+    padding-top: 20px;
+}
+
+.section p{
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-top: 20px;
+
+}
+
+.icons img{
+    width: 30px;
+    color: black;
+}
