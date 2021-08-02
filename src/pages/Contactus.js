@@ -1,14 +1,19 @@
-import React, { useState } from "react";
+import React, {  useState } from "react";
 import "./AllPage.css";
 import axios from "axios";
+import { useContext } from "react";
+import storeCtx from "../store/BlogData";
+import { useHistory } from "react-router-dom";
 
 function Login() {
   const [createaccount, setcreateaccount] = useState(false);
-
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorstate, setErrorState] = useState("");
   const [loaderdata, setLoader] = useState(false);
+
+  const storeContext = useContext(storeCtx);
+  const history = useHistory();
 
   function handleCreateAccount() {
     if (createaccount) {
@@ -17,6 +22,8 @@ function Login() {
       setcreateaccount(true);
     }
   }
+
+ 
 
   function signUpActivity(e) {
     setLoader(true);
@@ -32,7 +39,11 @@ function Login() {
         .post("http://localhost:3000/api/user/login", data, {
           headers: { "Content-Type": "application/json" },
         })
-        .then((response) => setLoader(false))
+        .then((response) => {
+          storeContext.addBlogData(response.data);
+          setLoader(false);
+          history.push('/');
+        })
         .catch((err) => {
           setErrorState("email or password does not match");
           setLoader(false);
@@ -43,7 +54,11 @@ function Login() {
         .post("http://localhost:3000/api/user/register", data, {
           headers: { "Content-Type": "application/json" },
         })
-        .then((response) => setLoader(false))
+        .then((response) => {
+          setLoader(false);
+          history.push('/');
+
+        })
         .catch((err) => {
           setErrorState("already exist email");
           setLoader(false);
@@ -56,7 +71,7 @@ function Login() {
 
   return (
     <div className="section">
-      <h2 className="loading">{loaderdata===true?"Loading":null}</h2>
+      <h2 className="loading">{loaderdata === true ? "Loading" : null}</h2>
       <div className="logincontainer">
         <div className={`${errorstate !== "" ? "errorbox" : "nonactive"}`}>
           {errorstate !== "" ? errorstate : ""}

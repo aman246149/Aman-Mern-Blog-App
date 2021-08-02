@@ -51,7 +51,7 @@ function BlogCards() {
       window.removeEventListener("resize", changeDimensions);
     };
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [imageDimen]);
+  }, [setImageDime]);
 
   return (
     <div className="card">
