@@ -4,12 +4,12 @@ import axios from "../NetRequest/AxiosInstance"
 
 import "./AllPage.css"
 
-function Web() {
+function CheetSheet() {
    
   const[responsedata,setresponsedata]=useState([])
 
   useEffect(()=>{
-    axios.get("/blog/getweb").then((response)=>{setresponsedata(response.data.success)}).catch(e=>console.log(e))
+    axios.get("/blog/getcheatsheet").then((response)=>{setresponsedata(response.data.success)}).catch(e=>console.log(e))
   // eslint-disable-next-line react-hooks/exhaustive-deps
   },[])
 
@@ -35,4 +35,4 @@ function Web() {
   );
 }
 
-export default Web
+export default CheetSheet

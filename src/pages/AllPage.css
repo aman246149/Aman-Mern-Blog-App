@@ -1,9 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Viga&display=swap');
+
 .section{
     padding-top: 5rem;
     width: 65%;
     margin-top: 8vh;
     line-height: 1;
     letter-spacing: -0.5px;
+    font-family: 'Viga', sans-serif;
+
+}
+
+.forpadding{
+  padding-top: 5rem;
 }
 
 .logincontainer{
@@ -83,4 +91,48 @@ input[type=email], select {
     color: purple;
     font-size: xx-large;
 
+  }
+
+  blockquote{
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  .quote{
+    font-style: italic;
+    margin-top: 40px;
+  }
+  .myname{
+    line-height: 1.5;
+    letter-spacing: 1.2px;
+  }
+
+  h2 .name{
+    font-size: 2.5rem;
+    color: rgb(37, 37, 7);
+  }
+
+  .contactmesection{
+
+    padding-top: 2rem;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    
+  }
+
+  .contactmesection a{
+    text-decoration: none;
+  }
+
+  .downloadresume{
+    margin-top: 20px;
+    
+  }
+
+  .downloadresume a{
+    color: white;
+    text-decoration: none;
+    font-style: inherit;
+    font-size: large;
+    
   }

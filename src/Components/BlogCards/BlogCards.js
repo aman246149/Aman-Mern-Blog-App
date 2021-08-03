@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from "react";
 import "./BlogCards.css";
+import { useHistory } from "react-router-dom"
 
-function BlogCards() {
+function BlogCards({title,shortDesc,date,markdown}) {
   const [imageDimen, setImageDime] = useState({
     height: "22vh",
     width: "20vw",
   });
+
+  const history=useHistory()
 
   function changeDimensions() {
     if (window.outerWidth<650 ) {
@@ -13,7 +16,6 @@ function BlogCards() {
         height: "30vh",
         width: "100%",
     });
-    console.log("called", imageDimen);
     } else {
       setImageDime({
         height: "22vh",
@@ -45,7 +47,6 @@ function BlogCards() {
     }
 
     window.addEventListener("resize", changeDimensions);
-    console.log("Render", imageDimen);
 
     return () => {
       window.removeEventListener("resize", changeDimensions);
@@ -54,12 +55,15 @@ function BlogCards() {
   }, [setImageDime]);
 
   return (
-    <div className="card">
+    <div className="card" onClick={()=>history.push({
+      pathname: '/blogpage',
+      state: { data: {title:title,shortDesc:shortDesc,date:date,markdown:markdown} }
+    })}>
       <div className="leftpart">
         <h1>
-          How to optimise an overload of digital tools in your organisation
+          {title}
         </h1>
-        <p>-8 min. read</p>
+        <p>{date.toString().slice(0, 10)}</p>
       </div>
       <div
         className="rightpart"

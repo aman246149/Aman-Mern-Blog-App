@@ -1,12 +1,39 @@
-import React from "react";
-import "./AllPage.css";
+import React, { useEffect, useState } from "react";
+import BlogCards from "../Components/BlogCards/BlogCards";
+import axios from "../NetRequest/AxiosInstance"
+
+import "./AllPage.css"
 
 function Tech() {
+   
+  const[responsedata,setresponsedata]=useState([])
+
+  useEffect(()=>{
+    axios.get("/blog/gettech").then((response)=>{setresponsedata(response.data.success)}).catch(e=>console.log(e))
+    console.log(responsedata)
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  },[])
+
   return (
-    <div className="section">
-      <h1>Tech</h1>
+    <div className="forpadding">
+      {/* blog motto section */}
+
+      {/* blog cards */}
+
+      {
+        responsedata.map((elem)=>{
+          return <BlogCards 
+          key={elem._id}
+          title={elem.title}
+          shortDesc={elem.shortDesc}
+          date={elem.date}
+          markdown={elem.markdown}
+          />
+        })
+      }
+      
     </div>
   );
 }
 
-export default Tech;
+export default Tech

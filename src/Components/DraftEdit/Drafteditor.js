@@ -1,12 +1,12 @@
-import React, { useState,useContext } from "react";
+import React, { useState, useContext } from "react";
 import "./Draft.css";
 import ReactMarkdown from "react-markdown";
-import axios from "axios";
-import storeContext from "../../store/BlogData"
+import axios from "../../NetRequest/AxiosInstance";
+import storeContext from "../../store/BlogData";
 
 function MyEditor() {
   const [markDown, setMarkDown] = useState("Welcome to Markdown");
-  const storectx=useContext(storeContext)
+  const storectx = useContext(storeContext);
 
   function handlingdata(event) {
     event.preventDefault();
@@ -17,16 +17,14 @@ function MyEditor() {
       markdown: markDown,
       postType: event.target[2].value,
     });
-    console.warn(storectx.blogdata,"from draftediteo");
     axios
-      .post("http://localhost:3000/blog/postformData", data, {
-        headers: { 
+      .post("blog/postformData", data, {
+        headers: {
           "Content-Type": "application/json",
-        "auth-token":storectx.blogdata
-      },
+          "auth-token": storectx.blogdata,
+        },
       })
       .then((response) => {
-        console.log(response);
       })
       .catch((err) => console.log(err));
   }

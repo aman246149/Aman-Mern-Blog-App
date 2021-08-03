@@ -1,6 +1,6 @@
 import React, {  useState } from "react";
 import "./AllPage.css";
-import axios from "axios";
+import axios from "../NetRequest/AxiosInstance"
 import { useContext } from "react";
 import storeCtx from "../store/BlogData";
 import { useHistory } from "react-router-dom";
@@ -27,20 +27,19 @@ function Login() {
 
   function signUpActivity(e) {
     setLoader(true);
-    console.log(email, password);
     const data = JSON.stringify({
       email: email,
       password: password,
     });
 
-    console.log(data);
     if (createaccount === true) {
       axios
-        .post("http://localhost:3000/api/user/login", data, {
+        .post("api/user/login", data, {
           headers: { "Content-Type": "application/json" },
         })
         .then((response) => {
-          storeContext.addBlogData(response.data);
+          storeContext.addBlogData(response.data.token);
+          storeContext.addUserEmailHandler(response.data.user)
           setLoader(false);
           history.push('/');
         })
@@ -49,9 +48,8 @@ function Login() {
           setLoader(false);
         });
     } else {
-      console.log("regisre");
       axios
-        .post("http://localhost:3000/api/user/register", data, {
+        .post("api/user/register", data, {
           headers: { "Content-Type": "application/json" },
         })
         .then((response) => {

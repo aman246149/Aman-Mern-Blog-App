@@ -2,18 +2,25 @@ import { createContext, useState } from "react";
 
 const BlogDataContext = createContext({
   blogdata: "",
+  userEmailData:"",
   addBlogData: (blogstringdata) => {},
+  addUserEmailHandler:(userEmailData)=>{}
 });
 
 //responsible for updating our blog data
 
 export function BlogDataContextProvider(props) {
   const [blogstateData, setBlogStateData] = useState("");
-
+  const [userEmailData, setUserEmailData] = useState("");
+  
   function addBlogDataHandler(blogstringdata) {
-    console.log("state updated", blogstringdata);
     return setBlogStateData((prevState) => {
       return setBlogStateData(prevState + blogstringdata);
+    });
+  }
+  function addUserEmailHandler(userEmail) {
+    return setUserEmailData((prevState) => {
+      return setUserEmailData(prevState + userEmail);
     });
   }
 
@@ -21,9 +28,10 @@ export function BlogDataContextProvider(props) {
   const context = {
     blogdata: blogstateData,
     addBlogData: addBlogDataHandler,
+    userEmailData:userEmailData,
+    addUserEmailHandler:addUserEmailHandler
   };
 
-  console.log("context", context);
 
   return (
     <BlogDataContext.Provider value={context}>

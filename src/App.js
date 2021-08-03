@@ -3,8 +3,8 @@ import HomePage from "./pages/HomePage/HomePage";
 import { Route,Switch } from 'react-router-dom'
 import Web from "./pages/Web";
 import Tech from "./pages/Tech";
-import Dsa from "./pages/Motivation";
-import Tricks from "./pages/Tricks";
+import Dsa from "./pages/Dsa";
+import Tricks from "./pages/CheetSheet";
 import About from "./pages/About";
 import SignUP from "./pages/Contactus";
 import Navbar from "./Components/Navbar/Navbar";
@@ -25,6 +25,11 @@ function App() {
        <Route path="/web" >
            <Web/>
        </Route>
+
+       <Route path="/blogpage" >
+           <BlogPage/>
+       </Route>
+
        <Route path="/tech" >
            <Tech/>
        </Route>
