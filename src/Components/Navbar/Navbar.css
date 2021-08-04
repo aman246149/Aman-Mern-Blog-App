@@ -56,6 +56,11 @@ button{
 }
 
 
+.humburger{
+    display: none;
+    cursor: pointer;
+}
+
 /* responsiveness mobile */
 
 
@@ -81,6 +86,17 @@ button{
 @media screen and (max-width: 1024px) {
     ul{
         display:none;
+    }
+
+    .humburger{
+        display: block;
+        margin-right: 20px;
+        cursor: pointer;
+        z-index: 10000;
+    }
+
+    button{
+        display: none;
     }
 }
 
@@ -117,3 +133,23 @@ button{
     
     
     }
+
+    .navactive{
+        position: relative;
+    }
+
+    .ulactive{
+         position: absolute;
+         width:90%;
+         background-color: red;
+         right: 40px;
+         top: 50px;
+         display: flex;
+         justify-content: space-evenly;
+        /* flex-direction: column; */
+       z-index: 1;
+        
+        padding: 20px;
+        
+    }
+    

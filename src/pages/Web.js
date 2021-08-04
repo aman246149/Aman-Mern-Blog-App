@@ -7,9 +7,15 @@ import "./AllPage.css"
 function Web() {
    
   const[responsedata,setresponsedata]=useState([])
+  const[isLoading,setLoading]=useState(true)
 
   useEffect(()=>{
-    axios.get("/blog/getweb").then((response)=>{setresponsedata(response.data.success)}).catch(e=>console.log(e))
+    setLoading(true)
+    axios.get("/blog/getweb").then((response)=>{setresponsedata(response.data.success)},setLoading(false)).catch(e=>setLoading(false))
+
+    return()=>{
+      setLoading(false)
+    }
   // eslint-disable-next-line react-hooks/exhaustive-deps
   },[])
 
@@ -18,6 +24,8 @@ function Web() {
       {/* blog motto section */}
 
       {/* blog cards */}
+     
+     <h2 className="loading">{isLoading === true ? "Loading..." : null}</h2>
 
       {
         responsedata.map((elem)=>{

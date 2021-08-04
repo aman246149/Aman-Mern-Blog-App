@@ -7,10 +7,14 @@ import "./AllPage.css"
 function Tech() {
    
   const[responsedata,setresponsedata]=useState([])
+  const[isLoading,setLoading]=useState(true)
 
   useEffect(()=>{
-    axios.get("/blog/gettech").then((response)=>{setresponsedata(response.data.success)}).catch(e=>console.log(e))
+    axios.get("/blog/gettech").then((response)=>{setresponsedata(response.data.success)},setLoading(false)).catch(e=>setLoading(false))
     console.log(responsedata)
+    return()=>{
+      setLoading(false)
+    }
   // eslint-disable-next-line react-hooks/exhaustive-deps
   },[])
 
@@ -19,6 +23,9 @@ function Tech() {
       {/* blog motto section */}
 
       {/* blog cards */}
+
+
+      <h2 className="loading">{isLoading === true ? "Loading..." : null}</h2>
 
       {
         responsedata.map((elem)=>{

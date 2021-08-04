@@ -1,7 +1,7 @@
 import axios from "axios";
 
 
-const url="http://localhost:3000/"
+const url="https://blogbackendaman.herokuapp.com/"
 const instance=axios.create({
     baseURL:url,
 })
