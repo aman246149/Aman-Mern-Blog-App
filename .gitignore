@@ -5,11 +5,17 @@
 /.pnp
 .pnp.js
 
+
 # testing
 /coverage
 
 # production
 /build
+/.firebase
+.firebaserc
+firebase.json
+
+
 
 # misc
 .DS_Store
