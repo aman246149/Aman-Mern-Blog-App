@@ -1,16 +1,28 @@
 import React, { useEffect, useState } from "react";
 import BlogMotto from "../../Components/Blog Moto/BlogMotto";
 import BlogCards from "../../Components/BlogCards/BlogCards";
-import axios from "../../NetRequest/AxiosInstance"
+import axios from "../../NetRequest/AxiosInstance";
 
 function HomePage() {
+  const [responsedata, setresponsedata] = useState([]);
+  const [isLoading, setLoading] = useState(true);
+  const [isError, setError] = useState(false);
 
-  const[responsedata,setresponsedata]=useState([])
+  useEffect(() => {
+    setLoading(true);
 
-  useEffect(()=>{
-    axios.get("/blog/getdata").then((response)=>{setresponsedata(response.data.success)}).catch(e=>console.log(e))
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  },[])
+    axios
+      .get("/blog/getdata")
+      .then((response) => {
+        setresponsedata(response.data.success);
+        setLoading(false);
+      })
+      .catch((e) => {
+        setError(true);
+        setLoading(false);
+      });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <>
@@ -18,22 +30,24 @@ function HomePage() {
 
       <BlogMotto />
 
- 
-
-
       {/* blog cards */}
-      {
-        responsedata.map((elem)=>{
-          return <BlogCards 
-          key={elem._id}
-          title={elem.title}
-          shortDesc={elem.shortDesc}
-          date={elem.date}
-          markdown={elem.markdown}
-          />
+      {isLoading ? (
+        <h1>Loading...</h1>
+      ) : isError ? (
+        <h1>Make Sure To check Your Internet and refresh this page again</h1>
+      ) : (
+        responsedata.map((elem) => {
+          return (
+            <BlogCards
+              key={elem._id}
+              title={elem.title}
+              shortDesc={elem.shortDesc}
+              date={elem.date}
+              markdown={elem.markdown}
+            />
+          );
         })
-      }
-      
+      )}
     </>
   );
 }

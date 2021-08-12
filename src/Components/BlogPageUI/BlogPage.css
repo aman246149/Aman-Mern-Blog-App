@@ -3,7 +3,7 @@
 
 .section{
     padding-top: 5rem;
-    width: 50vw;
+    width: 80vw;
     margin-top: 8vh;
     letter-spacing: -0.5px;
 }
@@ -23,13 +23,23 @@
 }
 
 .section p{
-    font-size: 1rem;
+    font-size: large;
+    font-weight: normal;
     line-height: 1.6;
+    letter-spacing: 1px;
     margin-top: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 
 }
+
+
 
 .icons img{
     width: 30px;
     color: black;
+    object-fit: contain;
+}
+
+.markdowncontainer img{
+    width: 100%;
 }

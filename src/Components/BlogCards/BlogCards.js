@@ -14,7 +14,7 @@ function BlogCards({title,shortDesc,date,markdown}) {
     if (window.outerWidth<650 ) {
       setImageDime({
         height: "30vh",
-        width: "100%",
+        width: "90%",
     });
     } else {
       setImageDime({

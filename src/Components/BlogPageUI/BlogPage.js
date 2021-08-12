@@ -31,7 +31,7 @@ function BlogPage() {
       </div>
       </div>
 
-     <ReactMarkdown>
+     <ReactMarkdown className="markdowncontainer">
      {comingData.markdown}
      </ReactMarkdown>
     </div>

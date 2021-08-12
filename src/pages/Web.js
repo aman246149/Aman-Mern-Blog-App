@@ -1,46 +1,57 @@
 import React, { useEffect, useState } from "react";
 import BlogCards from "../Components/BlogCards/BlogCards";
-import axios from "../NetRequest/AxiosInstance"
+import axios from "../NetRequest/AxiosInstance";
 
-import "./AllPage.css"
+import "./AllPage.css";
 
 function Web() {
-   
-  const[responsedata,setresponsedata]=useState([])
-  const[isLoading,setLoading]=useState(true)
+  const [responsedata, setresponsedata] = useState([]);
+  const [isLoading, setLoading] = useState(true);
+  const [isError,setError]=useState(false);
 
-  useEffect(()=>{
+
+  useEffect(() => {
+    console.log("useeffect calleing")
     setLoading(true)
-    axios.get("/blog/getweb").then((response)=>{setresponsedata(response.data.success)},setLoading(false)).catch(e=>setLoading(false))
+    axios
+      .get("/blog/getweb")
+      .then((response) => {
+        setresponsedata(response.data.success);
+        setLoading(false)
+      }, )
+      .catch((e) => {
+        setError(true)
+        setLoading(false)
+      });
+      console.log("useeffect end")
 
-    return()=>{
-      setLoading(false)
-    }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  },[])
+    
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <div className="forpadding">
       {/* blog motto section */}
 
       {/* blog cards */}
-     
-     <h2 className="loading">{isLoading === true ? "Loading..." : null}</h2>
 
-      {
-        responsedata.map((elem)=>{
-          return <BlogCards 
-          key={elem._id}
-          title={elem.title}
-          shortDesc={elem.shortDesc}
-          date={elem.date}
-          markdown={elem.markdown}
-          />
+      {isLoading ? (
+        <h1>Loading...</h1>
+      ) : isError?<h1>Make Sure To check Your Internet and refresh this page again</h1>:(
+        responsedata.map((elem) => {
+          return (
+            <BlogCards
+              key={elem._id}
+              title={elem.title}
+              shortDesc={elem.shortDesc}
+              date={elem.date}
+              markdown={elem.markdown}
+            />
+          );
         })
-      }
-      
+      )}
     </div>
   );
 }
 
-export default Web
+export default Web;
