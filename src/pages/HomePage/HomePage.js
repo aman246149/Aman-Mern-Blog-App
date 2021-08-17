@@ -1,28 +1,10 @@
-import React, { useEffect, useState } from "react";
 import BlogMotto from "../../Components/Blog Moto/BlogMotto";
 import BlogCards from "../../Components/BlogCards/BlogCards";
-import axios from "../../NetRequest/AxiosInstance";
+import useCustomPagesRequest from "../../customHooks/useCustomPagesRequest";
 
 function HomePage() {
-  const [responsedata, setresponsedata] = useState([]);
-  const [isLoading, setLoading] = useState(true);
-  const [isError, setError] = useState(false);
-
-  useEffect(() => {
-    setLoading(true);
-
-    axios
-      .get("/blog/getdata")
-      .then((response) => {
-        setresponsedata(response.data.success);
-        setLoading(false);
-      })
-      .catch((e) => {
-        setError(true);
-        setLoading(false);
-      });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  let { responsedata, isLoading, isError } =
+    useCustomPagesRequest("/blog/getdata");
 
   return (
     <>
